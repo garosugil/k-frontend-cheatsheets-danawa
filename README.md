@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  K-Frontend Cheatsheets Danwa
+  K-Frontend Cheatsheets Danawa
 </h1>
 
 <br>

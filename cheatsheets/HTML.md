@@ -1,6 +1,6 @@
 # HTML Cheatsheet
 
-> 
+> HTML 치트시트입니다.
 
 
 

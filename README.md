@@ -4,7 +4,7 @@
 </h1>
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![GitHub Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 <br>
@@ -36,10 +36,10 @@
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
-
 <table>
   <tr>
     <td align="center"><a href="https://github.com/Machineric"><img src="https://avatars.githubusercontent.com/u/26497426?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Machineric</b></sub></a><br /><a href="#maintenance-Machineric" title="Maintenance">🚧</a></td>
+    <td align="center"><a href="https://github.com/toffeenutlatte"><img src="https://avatars.githubusercontent.com/u/45933654?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Changoh Yoo</b></sub></a><br /><a href="#maintenance-toffeenutlatte" title="Maintenance">🚧</a></td>
   </tr>
 </table>
 

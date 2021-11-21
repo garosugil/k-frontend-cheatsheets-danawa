@@ -38,12 +38,13 @@
 <!-- markdownlint-disable -->
 <table>
   <tr>
-    <td align="center"><a href="https://github.com/Machineric"><img src="https://avatars.githubusercontent.com/u/26497426?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Machineric</b></sub></a><br /><a href="#maintenance-Machineric" title="Maintenance">🚧</a></td>
     <td align="center"><a href="https://github.com/toffeenutlatte"><img src="https://avatars.githubusercontent.com/u/45933654?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Changoh Yoo</b></sub></a><br /><a href="#maintenance-toffeenutlatte" title="Maintenance">🚧</a></td>
+    <td align="center"><a href="https://github.com/Machineric"><img src="https://avatars.githubusercontent.com/u/26497426?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Machineric</b></sub></a><br /><a href="#maintenance-Machineric" title="Maintenance">🚧</a></td>
+    <td align="center"><a href="https://github.com/autumnsky-tony"><img src="https://avatars.githubusercontent.com/u/44995141?v=4?s=100" width="100px;" alt=""/><br /><sub><b>tony</b></sub></a><br /><a href="#maintenance-autumnsky-tony" title="Maintenance">🚧</a></td>
+    <td align="center"><a href="https://github.com/yejikk"><img src="https://avatars.githubusercontent.com/u/45961217?v=4?s=100" width="100px;" alt=""/><br /><sub><b>yejikk</b></sub></a><br /><a href="#maintenance-yejikk" title="Maintenance">🚧</a></td>
   </tr>
 </table>
 
 <!-- markdownlint-restore -->
 <!-- prettier-ignore-end -->
-
 <!-- ALL-CONTRIBUTORS-LIST:END -->

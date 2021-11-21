@@ -1,0 +1,24 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "Machineric",
+      "name": "Machineric",
+      "avatar_url": "https://avatars.githubusercontent.com/u/26497426?v=4",
+      "profile": "https://github.com/Machineric",
+      "contributions": [
+        "maintenance"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "k-frontend-cheatsheets-danawa",
+  "projectOwner": "garosugil",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}

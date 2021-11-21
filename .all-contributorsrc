@@ -13,6 +13,15 @@
       "contributions": [
         "maintenance"
       ]
+    },
+    {
+      "login": "autumnsky-tony",
+      "name": "tony",
+      "avatar_url": "https://avatars.githubusercontent.com/u/44995141?v=4",
+      "profile": "https://github.com/autumnsky-tony",
+      "contributions": [
+        "maintenance"
+      ]
     }
   ],
   "contributorsPerLine": 7,

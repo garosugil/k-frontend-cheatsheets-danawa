@@ -2,19 +2,21 @@
   <br>
   K-Frontend Cheatsheets Danawa
 </h1>
-<br>
+
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 [![GitHub Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
+<br>
 <hr>
 <p align="center">
 	<strong>한국 프론트엔드 개발자를 위한 치트시트들 다나와 💕</strong>
 </p>
 <hr>
-
+<br>
 
 <br>
+
 ## Table of Contents 
 
 
@@ -22,10 +24,6 @@
 <br>
 
 ## Cheatsheets 📖
-
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 <br>
 

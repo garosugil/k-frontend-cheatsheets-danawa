@@ -5,10 +5,12 @@
 
 
 ## Table of Contents
-
+****
 - [HTML Cheatsheet](#html-cheatsheet)
   - [Table of Contents](#table-of-contents)
   - [HTML 보일러플레이트](#html-보일러플레이트)
+    - [VSCode HTML Boilerplate](#vscode-html-boilerplate)
+    - [H5BP HTML5 Boilerplate](#h5bp-html5-boilerplate)
   - [시맨틱 태그](#시맨틱-태그)
   - [많이 사용되는 태그](#많이-사용되는-태그)
   - [메타 태그 & OG](#메타-태그--og)
@@ -31,6 +33,34 @@
 ## HTML 보일러플레이트
 
 > HTML 작성 시 재사용할 수 있는 보일러플레이트(Boilerplate) 코드입니다.
+
+
+### VSCode HTML Boilerplate
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+</html>
+```
+
+- `<!DOCTYPE html>`
+  - 문서의 형식을 정의한다. 브라우저에게 현재 문서가 HTML 언어로 작성되었음을 알려준다.
+- `<html lang="en"></html>`
+  - 
+
+
+
+### [H5BP HTML5 Boilerplate](https://html5boilerplate.com/)
+
+
 
 
 <br>

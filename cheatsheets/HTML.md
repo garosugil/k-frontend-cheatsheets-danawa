@@ -13,7 +13,7 @@
     - [`<html lang="en"></html>`](#html-langenhtml)
     - [`<head></head>`](#headhead)
     - [`<meta charset="UTF-8">`](#meta-charsetutf-8)
-    - [`<meta http-equiv="X-UA-Compatible" content="IE=edge">` (Optional)](#meta-http-equivx-ua-compatible-contentieedge-optional)
+    - [`<meta http-equiv="X-UA-Compatible" content="IE=edge">`](#meta-http-equivx-ua-compatible-contentieedge)
     - [`<meta name="viewport" content="width=device-width, initial-scale=1.0">`](#meta-nameviewport-contentwidthdevice-width-initial-scale10)
     - [`<title>Document</title>`](#titledocumenttitle)
     - [`<body></body>`](#bodybody)
@@ -22,6 +22,7 @@
     - [`Custom Style Sheet`](#custom-style-sheet)
     - [참고자료](#참고자료)
   - [시맨틱 태그](#시맨틱-태그)
+    - [참고자료](#참고자료-1)
   - [많이 사용되는 태그](#많이-사용되는-태그)
   - [메타 태그 & OG](#메타-태그--og)
     - [메타 태그](#메타-태그)
@@ -52,7 +53,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Favicon (Optional) -->
+  <!-- Favicon -->
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -62,7 +63,7 @@
   <meta name="msapplication-TileColor" content="#da532c">
   <meta name="theme-color" content="#ffffff">
 
-  <!-- CSS Reset (Optional) -->
+  <!-- CSS Reset -->
   <link rel="stylesheet" href="css/normalize.css" />
 
   <!-- Custom Style Sheet -->
@@ -98,7 +99,7 @@
 
 <br>
 
-### `<meta http-equiv="X-UA-Compatible" content="IE=edge">` (Optional)
+### `<meta http-equiv="X-UA-Compatible" content="IE=edge">`
 - 브라우저 호환성을 설정한다. 인터넷 익스플로러가 최신 버전으로 마크업을 해석하게끔 한다.
 - [레거시 브라우저를 지원해야하는 상황이 아니라면 완전히 제거하는 것을 권장한다.](https://stackoverflow.com/questions/6771258/what-does-meta-http-equiv-x-ua-compatible-content-ie-edge-do)
 
@@ -137,6 +138,8 @@
 - (참고) [ress](https://github.com/filipelinhares/ress)
   - 위 두 방식의 장점을 취하는 것을 목표로 한다.
 
+<br>
+
 ### `Custom Style Sheet`
 - css 파일을 분리하여 모든 스타일 관련 지침을 작성한다.
 - [구글 스타일 가이드 3.1.5](https://google.github.io/styleguide/htmlcssguide.html#Separation_of_Concerns)에 따르면 웹 페이지의 **구조와 콘텐츠**를 **스타일**과 **분리**하도록 권장하고 있다.
@@ -164,6 +167,8 @@
 ## 시맨틱 태그
 
 > 주제 설명
+
+### 참고자료
 
 
 <br>

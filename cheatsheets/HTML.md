@@ -169,7 +169,9 @@
 > 주제 설명
 
 ### 참고자료
-
+- [Google에서 인식하는 모든 메타 태그](https://developers.google.com/search/docs/advanced/crawling/special-tags)
+- [10 Most Important Meta Tags You Need to Know for SEO](https://www.searchenginejournal.com/important-tags-seo/156440/)
+- [The Open Graph protocol](https://ogp.me/)
 
 <br>
 

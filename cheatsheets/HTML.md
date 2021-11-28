@@ -22,13 +22,21 @@
     - [`Custom Style Sheet`](#custom-style-sheet)
     - [참고자료](#참고자료)
   - [시맨틱 태그](#시맨틱-태그)
-    - [참고자료](#참고자료-1)
   - [많이 사용되는 태그](#많이-사용되는-태그)
   - [메타 태그 & OG](#메타-태그--og)
     - [메타 태그](#메타-태그)
-      - [태그 1](#태그-1)
-      - [태그 2](#태그-2)
+      - [`application-name` name](#application-name-name)
+      - [`description` name](#description-name)
+      - [`author` name](#author-name)
+      - [`keywords` name](#keywords-name)
+      - [`referrer` name](#referrer-name)
+      - [`theme-color` name](#theme-color-name)
     - [OG(Open Graph)](#ogopen-graph)
+      - [og:title 태그](#ogtitle-태그)
+      - [og:type 태그](#ogtype-태그)
+      - [og:url 태그](#ogurl-태그)
+      - [og:image 태그](#ogimage-태그)
+    - [참고자료](#참고자료-1)
   - [폼](#폼)
   - [엔티티](#엔티티)
   - [이미지 & 미디어](#이미지--미디어)
@@ -115,6 +123,12 @@
   1. 브라우저 제목 표시줄
   2. 북마크 및 즐겨찾기
   3. 검색 서비스의 검색 결과 목록
+- SEO 예시
+  ```html
+  <title>예쁜템들 모여사는 오늘의집</title>
+  ```
+  <img src="./html.assets/ohou-title.png" alt="ohou-title">
+
 
 <br>
 
@@ -168,10 +182,6 @@
 
 > 주제 설명
 
-### 참고자료
-- [Google에서 인식하는 모든 메타 태그](https://developers.google.com/search/docs/advanced/crawling/special-tags)
-- [10 Most Important Meta Tags You Need to Know for SEO](https://www.searchenginejournal.com/important-tags-seo/156440/)
-- [The Open Graph protocol](https://ogp.me/)
 
 <br>
 
@@ -202,25 +212,58 @@
 
 ### 메타 태그
 
-> 메타 태그는 이런 것입니다.
+> 웹 페이지에 대한 [메타데이터](https://ko.wikipedia.org/wiki/%EB%A9%94%ED%83%80%EB%8D%B0%EC%9D%B4%ED%84%B0)를 제공하기 위한 `<meta ...>` 형태의 태그를 말한다.
+>
+> `meta` 요소가 제공하는 메타 데이터의 4가지 유형
+> 1. `name` 속성
+>     - 문서의 메타 데이터를 설정한다.
+>     - `name` 속성과 `content` 속성이라는 이름-값 쌍 형태로 제공한다.
+> 2. `http-equiv` 속성
+>    - 프래그마 지시문(pragma directive)을 설정한다.
+> 3. `charset` 속성
+>    - 문자열 형식 정보를 제공한다.
+> 4. `itemporp` 속성
+>    - 사용자가 정의한 메타 데이터(`user-defined metadata`)
+#### `application-name` name
 
-
-
-#### 태그 1
-
-- 태그1은 궁시렁 궁시렁 궁시렁입니다.
+- 웹 페이지에서 구동 중인 웹 애플리케이션의 이름을 설정한다.
+- 종종 `<title>` 태그에 애플리케이션 이름이 아닌 특정 페이지의 이름 또는 상태 정보가 존재할 수 있기 때문에, 사용자 에이전트는 `<title>`이 아닌 `application-name`을 사용할 수 있다.
+- 예시
   ```html
-  <meta>
+  <!-- 정확한 애플리케이션 이름을 나타냄 -->
+  <meta name="application-name" content="예쁜템들 모여사는 오늘의집">
+
+  <!-- 집들이 페이지를 들어가면 애플리케이션 이름이 아닌 다른 데이터를 함께 표시함 -->
+  <title>인기 인테리어 집들이 모음ㅣ예쁜템들 모여사는 오늘의집 유저들의 집꾸미기</title>
   ```
-  
-  - [추가설명](./html/meta1.md)
-  - [외부링크]()
+
+#### `description` name
+
+- 페이지에 대한 짧고 명확한 요약을 제공한다.
+- Firefox, Opera등 여러 브라우저는 즐겨찾기 페이지의 기본 설명 값으로 사용하기도 한다.
+  ```html
+  <meta name="description" content="A description of the page" />
+  ```
+- SEO 예시
+  ```html
+  <meta name="description" content="2000만이 선택한 No.1 인테리어 필수앱. 집들이 구경부터 제품 정보 확인, 구매까지 한 번에!">
+  ```
+  <img src="./html.assets/ohou-description.png" alt="ohou-description">
+
+#### `author` name
+- 
 
 
+#### `keywords` name
+- 
 
-#### 태그 2
 
-- 태그2는 궁시렁 궁시렁입니다.
+#### `referrer` name
+- 
+
+#### `theme-color` name
+
+<br>
 
 
 <br>
@@ -228,14 +271,29 @@
 [🔝 BACK TO TOP](#Table-of-Contents)
 
 
----
-
 <br>
 
 
 ### OG(Open Graph)
 
 > OG는 Open Graph(오픈 그래프)의 약자로 이런 것입니다.
+
+#### og:title 태그
+
+#### og:type 태그
+
+#### og:url 태그
+
+#### og:image 태그
+
+<br>
+
+### 참고자료
+- [HTML Living Standard - meta element](https://html.spec.whatwg.org/multipage/semantics.html#the-meta-element)
+- [MDN - HTML 요소 참고서](https://developer.mozilla.org/ko/docs/Web/HTML/Element)
+- [Google에서 인식하는 모든 메타 태그](https://developers.google.com/search/docs/advanced/crawling/special-tags)
+- [10 Most Important Meta Tags You Need to Know for SEO](https://www.searchenginejournal.com/important-tags-seo/156440/)
+- [The Open Graph protocol](https://ogp.me/)
 
 
 <br>

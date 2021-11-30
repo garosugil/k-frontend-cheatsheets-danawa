@@ -25,12 +25,12 @@
   - [많이 사용되는 태그](#많이-사용되는-태그)
   - [메타 태그 & OG](#메타-태그--og)
     - [메타 태그](#메타-태그)
-      - [`application-name` name](#application-name-name)
-      - [`description` name](#description-name)
-      - [`author` name](#author-name)
-      - [`keywords` name](#keywords-name)
-      - [`referrer` name](#referrer-name)
-      - [`theme-color` name](#theme-color-name)
+      - [`application-name`](#application-name)
+      - [`description`](#description)
+      - [`author`](#author)
+      - [`keywords`](#keywords)
+      - [`referrer`](#referrer)
+      - [`theme-color`](#theme-color)
     - [OG(Open Graph)](#ogopen-graph)
       - [og:title 태그](#ogtitle-태그)
       - [og:type 태그](#ogtype-태그)
@@ -224,7 +224,7 @@
 >    - 문자열 형식 정보를 제공한다.
 > 4. `itemporp` 속성
 >    - 사용자가 정의한 메타 데이터(`user-defined metadata`)
-#### `application-name` name
+#### `application-name`
 
 - 웹 페이지에서 구동 중인 웹 애플리케이션의 이름을 설정한다.
 - 종종 `<title>` 태그에 애플리케이션 이름이 아닌 특정 페이지의 이름 또는 상태 정보가 존재할 수 있기 때문에, 사용자 에이전트는 `<title>`이 아닌 `application-name`을 사용할 수 있다.
@@ -237,31 +237,32 @@
   <title>인기 인테리어 집들이 모음ㅣ예쁜템들 모여사는 오늘의집 유저들의 집꾸미기</title>
   ```
 
-#### `description` name
+#### `description`
 
 - 페이지에 대한 짧고 명확한 요약을 제공한다.
 - Firefox, Opera등 여러 브라우저는 즐겨찾기 페이지의 기본 설명 값으로 사용하기도 한다.
   ```html
   <meta name="description" content="A description of the page" />
   ```
-- SEO 예시
+- 예시
   ```html
   <meta name="description" content="2000만이 선택한 No.1 인테리어 필수앱. 집들이 구경부터 제품 정보 확인, 구매까지 한 번에!">
   ```
   <img src="./html.assets/ohou-description.png" alt="ohou-description">
 
-#### `author` name
+#### `author`
 - 
 
 
-#### `keywords` name
+#### `keywords`
 - 
 
 
-#### `referrer` name
+#### `referrer`
 - 
 
-#### `theme-color` name
+#### `theme-color`
+-
 
 <br>
 

@@ -40,6 +40,9 @@
   - [폼](#폼)
   - [엔티티](#엔티티)
   - [이미지 & 미디어](#이미지--미디어)
+    - [이미지(`<img>`)](#이미지img)
+    - [비디오(`<video>`)](#비디오video)
+    - [오디오(`<audio>`)](#오디오audio)
 
 
 <br>
@@ -410,6 +413,45 @@
 
 > 주제 설명
 
+### [이미지(`<img>`)](https://developer.mozilla.org/ko/docs/Web/HTML/Element/img)
+- [이미지](https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Image_types)를 문서에 삽입한다.
+- `src`: 이미지 경로 (필수)
+- `alt`: 이미지의 텍스트 설명 (필수 아닌 필수)
+  ```html
+  <img class="fit-picture"
+       src="/media/cc0-images/grapefruit-slice-332-332.jpg"
+       alt="Grapefruit slice atop a pile of other slices">
+
+  ```
+
+### [비디오(`<video>`)](https://developer.mozilla.org/ko/docs/Web/HTML/Element/Video)
+
+- 비디오 플레이백을 지원하는 미디어 플레이어를 문서에 삽입한다.
+  ```html
+  <video controls width="250">
+    <source src="/media/cc0-videos/flower.webm"
+            type="video/webm">
+
+    <source src="/media/cc0-videos/flower.mp4"
+            type="video/mp4">
+    쏴리! 니가 사용하고 있는 브라우저가 이 비디오를 지원하지 않네.
+  </video>
+  ```
+
+### [오디오(`<audio>`)](https://developer.mozilla.org/ko/docs/Web/HTML/Element/audio)
+
+- 소리 콘텐츠를 문서에 삽입한다.
+  ```html
+  <figure>
+    <figcaption>Listen to the T-Rex:</figcaption>
+    <audio
+        controls
+        src="/media/cc0-audio/t-rex-roar.mp3">
+            Your browser does not support the
+            <code>audio</code> element.
+    </audio>
+  </figure>
+  ```
 
 <br>
 

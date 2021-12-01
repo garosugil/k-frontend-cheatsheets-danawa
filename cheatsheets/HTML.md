@@ -28,14 +28,14 @@
       - [`application-name`](#application-name)
       - [`description`](#description)
       - [`author`](#author)
+      - [`generator`](#generator)
       - [`keywords`](#keywords)
       - [`referrer`](#referrer)
       - [`theme-color`](#theme-color)
+      - [`color-scheme`](#color-scheme)
     - [OG(Open Graph)](#ogopen-graph)
-      - [og:title 태그](#ogtitle-태그)
-      - [og:type 태그](#ogtype-태그)
-      - [og:url 태그](#ogurl-태그)
-      - [og:image 태그](#ogimage-태그)
+      - [Basic Metadata](#basic-metadata)
+      - [Optional Metadata](#optional-metadata)
     - [참고자료](#참고자료-1)
   - [폼](#폼)
   - [엔티티](#엔티티)
@@ -226,7 +226,7 @@
 >    - 사용자가 정의한 메타 데이터(`user-defined metadata`)
 #### `application-name`
 
-- 웹 페이지에서 구동 중인 웹 애플리케이션의 이름을 설정한다.
+- 웹 페이지에서 구동 중인 웹 애플리케이션의 이름
 - 종종 `<title>` 태그에 애플리케이션 이름이 아닌 특정 페이지의 이름 또는 상태 정보가 존재할 수 있기 때문에, 사용자 에이전트는 `<title>`이 아닌 `application-name`을 사용할 수 있다.
 - 예시
   ```html
@@ -239,30 +239,45 @@
 
 #### `description`
 
-- 페이지에 대한 짧고 명확한 요약을 제공한다.
-- Firefox, Opera등 여러 브라우저는 즐겨찾기 페이지의 기본 설명 값으로 사용하기도 한다.
-  ```html
-  <meta name="description" content="A description of the page" />
-  ```
-- 예시
+- 페이지에 대한 짧고 명확한 요약
   ```html
   <meta name="description" content="2000만이 선택한 No.1 인테리어 필수앱. 집들이 구경부터 제품 정보 확인, 구매까지 한 번에!">
   ```
   <img src="./html.assets/ohou-description.png" alt="ohou-description">
 
 #### `author`
-- 
+- 문서 저작자
 
-
+#### `generator`
+- 문서를 생성하는 데 사용된 소프트웨어 패키지
+  ```html
+  <meta name=generator content="Frontweaver 8.2">
+  ```
 #### `keywords`
-- 
-
+- 페이지의 콘텐츠와 관련된 쉼표(`,`)로 구분한 키워드 목록
+  ```html
+  <meta name="keywords" content="만화, 웹툰, 무료, 성인, BL, 추천, 요일별, 코믹스, 카툰, 사이트">
+  ```
 
 #### `referrer`
-- 
+- 문서에 대한 [HTTP Referer](https://ko.wikipedia.org/wiki/HTTP_%EB%A6%AC%ED%8D%BC%EB%9F%AC) 관련 정책
+  ```html
+  <meta name="referrer" content="no-referrer-when-downgrade">
+  ```
 
 #### `theme-color`
--
+- 유저 에이전트가 페이지 또는 주변 사용자 인터페이스의 표시를 커스터마이징하는 데 사용할 색상
+  ```html
+  <meta name="theme-color" content="#3c790a">
+  ```
+
+#### `color-scheme`
+- 유저 에이전트가 페이지 배경을 (CSS 로드를 기다리지 않고) 즉시 렌더링할 컬러 스키마
+  ```html
+  <meta name="color-scheme" content="dark light">
+  ```
+  - [What Does Dark Mode’s “color-scheme” Actually Do?](https://medium.com/dev-channel/what-does-dark-modes-supported-color-schemes-actually-do-69c2eacdfa1d)
+  - [웹에서 다크모드 구현하기](https://marshall-ku.com/web/tips/%EC%9B%B9%EC%97%90%EC%84%9C-%EB%8B%A4%ED%81%AC-%EB%AA%A8%EB%93%9C-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0)
 
 <br>
 
@@ -275,26 +290,80 @@
 <br>
 
 
-### OG(Open Graph)
+### [OG(Open Graph)](https://ogp.me/)
 
-> OG는 Open Graph(오픈 그래프)의 약자로 이런 것입니다.
+> 페이스북이 만든 메타 데이터 정의 프로토콜으로, 웹 페이지를 소셜 그래프에서 표현하기 최적화된 형태의 오브젝트로 설정한다.
+> 
+> - [참고: 트위터 카드(Twitter Cards)](https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/abouts-cards)
 
-#### og:title 태그
+#### Basic Metadata
+- `og:title`
+  - 그래프 상에 보여줄 오브젝트의 제목
+    ```html
+    <meta property="og:title" content="인테리어 집꾸미기는 오늘의집" />
+    ```
 
-#### og:type 태그
+- `og:type`
+  - 오브젝트의 타입
+    ```html
+    <meta property="og:type" content="website" />
+    ```
+- `og:url`
+  - 그래프에서 영구 ID(permanent ID)로 사용될 오브젝트의 [canonical URL](https://support.google.com/webmasters/answer/10347851?hl=en)
+    ```html
+    <meta property="og:url" content="https://ohou.se/" />
+    ```
+- `og:image`
+  - 그래프 상에 보여줄 오브젝트를 표현하는 이미지 URL
+    ```html
+    <meta property="og:image" content="https://s3-ap-northeast-1.amazonaws.com/bucketplace-v2-development/uploads/default_images/open_graph_icon_2.png" />
+    ```
+#### Optional Metadata
+- `og:audio`
+  - 오브젝트와 함께 제공되는 오디오 파일 URL
+    ```html
+    <meta property="og:audio" content="https://example.com/bond/theme.mp3" />
+    ```
 
-#### og:url 태그
+- `og:description`
+  - 오브젝트에 대한 1~2 문장의 설명
+    ```html
+    <meta name="description" content="2000만이 선택한 No.1 인테리어 필수앱. 집들이 구경부터 제품 정보 확인, 구매까지 한 번에!" />
+    ```
 
-#### og:image 태그
+- `og:locale`
+  - 태그가 마크업된 지역 정보 (기본값은 `en_US`)
+    ```html
+    <meta property="og:locale" content="ko_KR" />
+    ```
+
+- `og:locale:alternate`
+  - 페이지를 사용할 수 있는 다른 지역들
+    ```html
+    <meta property="og:locale:alternate" content="fr_FR" />
+    <meta property="og:locale:alternate" content="es_ES" />
+    ```
+
+- `og:site_name`
+  - 오브젝트가 어떠한 상위 사이트의 일부분인 경우 나타낼 전체 사이트의 이름
+    ```html
+    <meta property="og:site_name" content="IMDb" />
+    ```
+
+- `og:video`
+  - 페이지를 설명하는 비디오 URL
+    ```html
+    <meta property="og:video" content="https://example.com/bond/trailer.swf" />
+    ```
+
 
 <br>
 
 ### 참고자료
 - [HTML Living Standard - meta element](https://html.spec.whatwg.org/multipage/semantics.html#the-meta-element)
-- [MDN - HTML 요소 참고서](https://developer.mozilla.org/ko/docs/Web/HTML/Element)
+- [MDN 표준 메타데이터 이름](https://developer.mozilla.org/ko/docs/Web/HTML/Element/meta/name#%EB%8B%A4%EB%A5%B8_%EB%AA%85%EC%84%B8%EA%B0%80_%EC%A0%95%EC%9D%98%ED%95%98%EB%8A%94_%ED%91%9C%EC%A4%80_%EB%A9%94%ED%83%80%EB%8D%B0%EC%9D%B4%ED%84%B0_%EC%9D%B4%EB%A6%84)
 - [Google에서 인식하는 모든 메타 태그](https://developers.google.com/search/docs/advanced/crawling/special-tags)
 - [10 Most Important Meta Tags You Need to Know for SEO](https://www.searchenginejournal.com/important-tags-seo/156440/)
-- [The Open Graph protocol](https://ogp.me/)
 
 
 <br>

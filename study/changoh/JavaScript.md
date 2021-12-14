@@ -17,7 +17,9 @@
     - [async & await](#async--await)
     - [템플릿 리터럴(Template Literal)](#템플릿-리터럴template-literal)
     - [클래스(Class)](#클래스class)
-    - [디스트럭처링(Destructuring)](#디스트럭처링destructuring)
+    - [구조 분해 할당(Destructuring Assignment)](#구조-분해-할당destructuring-assignment)
+      - [배열 분해](#배열-분해)
+      - [객체 분해](#객체-분해)
     - [모듈(Module)](#모듈module)
     - [객체 리터럴(Object Literal)](#객체-리터럴object-literal)
     - [배열 고차 함수](#배열-고차-함수)
@@ -262,7 +264,163 @@ new Promise((resolve, reject) => {
 
 <br>
 
-### 디스트럭처링(Destructuring)
+### 구조 분해 할당(Destructuring Assignment)
+
+> 객체나 배열에 저장된 데이터 일부를 "분해"하여 변수에 "할당"한다.
+
+#### 배열 분해
+
+- 이터러블(iterable)에서 필요한 요소만 추출하고 싶을 때 유용하다.
+
+  ```javascript
+  let arr = ["Joe", "Biden"];
+
+  let [firstName, familyName] = arr;
+  console.log(firstName); // "Joe"
+  console.log(familyName); // "Biden"
+  ```
+
+- 쉼표를 사용하여 특정 요소를 무시할 수 있다.
+
+  ```javascript
+  let [left, , right] = [1, 2, 3];
+  console.log(left); // 1
+  console.log(right); // 3
+  ```
+
+- 할당 연산자 **우측**에 모든 **이터러블**이 올 수 있다.
+
+  ```javascript
+  let [a, b, c] = "바이든";
+  console.log(a); // "바"
+  console.log(b); // "이"
+  console.log(c); // "든"
+  ```
+
+- 할당 연산자 **좌측**에 **할당할 수 있는 모든 것(assignables)**이 올 수 있다.
+
+  ```javascript
+  let president = {};
+  [president.firstName, president.familyName] = "조 바이든".split(" ");
+  console.log(president); // {firstName: '조', familyName: '바이든'}
+  ```
+
+- 할당할 값이 없으면 `undefined`로 처리된다.
+
+  ```javascript
+  let [firstName, familyName] = [];
+  console.log(firstName); // undefined
+  console.log(familyName); // undefined
+  ```
+
+- 기본값(default value)을 설정할 수 있다.
+
+  ```javascript
+  let [firstName = "아무개", familyName = "김"] = ["두한"];
+  console.log(firstName); // "두한"
+  console.log(familyName); // "김"
+  ```
+
+- Rest 프로퍼티를 활용할 수 있다.
+  ```javascript
+  let numbers = [1, 2, 3, 4, 5];
+  let [first, ...restNumbers] = numbers;
+  console.log(first); // 1
+  console.log(restNumbers); // [2, 3, 4, 5]
+  ```
+
+#### 객체 분해
+
+- 객체에서 필요한 프로퍼티 값만 추출하고 싶을 때 유용하다.
+
+  ```javascript
+  let president = {
+    fullName: "조 바이든",
+    age: 79,
+  };
+
+  let { age, fullName } = president; // 순서 상관 없음
+  console.log(age); // 79
+  console.log(fullName); // "조 바이든"
+  ```
+
+- 분해한 프로퍼티를 **새로운 변수 이름**으로 할당할 수 있다.
+
+  ```javascript
+  let president = {
+    full_name: "조 바이든",
+    age_count: 79,
+  };
+
+  // { 프로퍼티 키: 새로운 변수명 }
+  let { full_name: fullName, age_count: age } = president;
+  console.log(fullName); // "조 바이든"
+  console.log(age); // "79"
+  ```
+
+- 할당 연산자(`=`)를 사용해 기본값을 설정할 수 있다.
+
+  ```javascript
+  let joeBiden = {
+    fullName: "조 바이든",
+  };
+
+  let { fullName = "김 아무개", age = 10 } = joeBiden;
+  console.log(fullName); // "조 바이든"
+  console.log(age); // 10
+  ```
+
+- 새로운 변수 이름과 할당 연산자를 동시에 사용할 수 있다.
+
+  ```javascript
+  let joeBiden = {
+    full_name: "조 바이든",
+  };
+
+  let { full_name: fullName = "김 아무개", age_count: age = 10 } = joeBiden;
+  console.log(fullName); // "조 바이든"
+  console.log(age); // 10
+  ```
+
+- Rest 프로퍼티를 활용할 수 있다.
+
+  ```javascript
+  const appleDevices = {
+    phone: "아이폰",
+    laptop: "맥북",
+    tablet: "아이패드",
+  };
+  const { phone, ...restDevices } = appleDevices;
+  console.log(phone); // "아이폰"
+  console.log(restDevices); // {laptop: '맥북', tablet: '아이패드'}
+  ```
+
+- 중첩 객체 구조 분해
+
+  - 객체나 배열이 다른 객체나 배열을 포함하는 경우에도 정보를 추출할 수 있다.
+
+  ```javascript
+  let joeBiden = {
+    // 중첩 객체
+    name: {
+      firstName: "조",
+      familyName: "바이든",
+    },
+    // 중첩 객체
+    contact: {
+      website: "https://www.whitehouse.gov/contact/",
+    },
+    // 중첩 배열
+    items: ["아이폰", "맥북"],
+  };
+
+  const {
+    name: { firstName, familyName },
+    items: [itemOne, itemTwo],
+  } = joeBiden;
+  console.log(firstName, familyName); // "조 바이든"
+  console.log(itemOne, itemTwo); // "아이폰 맥북"
+  ```
 
 - 참고자료
   - [Medium | Why I Find JavaScript’s Destructuring So Useful](https://betterprogramming.pub/why-i-find-javascripts-destructuring-so-useful-7be41d9ba609)

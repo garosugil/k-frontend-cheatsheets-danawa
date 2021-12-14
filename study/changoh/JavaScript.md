@@ -476,6 +476,31 @@ new Promise((resolve, reject) => {
 
 #### 옵셔널 체이닝(Optional Chaining) 연산자
 
+> 프로퍼티가 없는 중첩 객체를 "에러 없이" 안전하게 접근할 수 있다.
+
+```javascript
+let joeBiden = {
+  name: {
+    firstName: "조",
+    familyName: "바이든",
+  },
+  pets: {
+    dog: {
+      name: "백구",
+      age: "1",
+    },
+  },
+};
+
+// name 프로퍼티가 undefined 또는 null이면 평가를 멈추고 undefined를 반환한다.
+const familyName = joeBiden.name?.familyName;
+console.log(familyName); // "바이든"
+
+// pets 프로퍼티가 undefined 또는 null이면 평가를 멈추고 undefined를 반환한다. (-> cat도 동일)
+const catName = joeBiden.pets?.cat?.name;
+console.log(catName); // undefined
+```
+
 - 참고자료
   - [MDN | 옵셔널 체이닝 연산자](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/Optional_chaining)
 

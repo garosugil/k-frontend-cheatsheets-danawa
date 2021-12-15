@@ -476,35 +476,65 @@ new Promise((resolve, reject) => {
 
 #### 옵셔널 체이닝(Optional Chaining) 연산자
 
-> 프로퍼티가 없는 중첩 객체를 "에러 없이" 안전하게 접근할 수 있다.
+- 프로퍼티가 없는 중첩 객체를 "에러 없이" 안전하게 접근할 수 있다.
 
-```javascript
-let joeBiden = {
-  name: {
-    firstName: "조",
-    familyName: "바이든",
-  },
-  pets: {
-    dog: {
-      name: "백구",
-      age: "1",
+  ```javascript
+  let joeBiden = {
+    name: {
+      firstName: "조",
+      familyName: "바이든",
     },
-  },
-};
+    pets: {
+      dog: {
+        name: "백구",
+        age: "1",
+      },
+    },
+  };
 
-// name 프로퍼티가 undefined 또는 null이면 평가를 멈추고 undefined를 반환한다.
-const familyName = joeBiden.name?.familyName;
-console.log(familyName); // "바이든"
+  // name 프로퍼티가 undefined 또는 null이면 평가를 멈추고 undefined를 반환한다.
+  const familyName = joeBiden.name?.familyName;
+  console.log(familyName); // "바이든"
 
-// pets 프로퍼티가 undefined 또는 null이면 평가를 멈추고 undefined를 반환한다. (-> cat도 동일)
-const catName = joeBiden.pets?.cat?.name;
-console.log(catName); // undefined
-```
+  // pets 프로퍼티가 undefined 또는 null이면 평가를 멈추고 undefined를 반환한다. (-> cat도 동일)
+  const catName = joeBiden.pets?.cat?.name;
+  console.log(catName); // undefined
+  ```
 
 - 참고자료
   - [MDN | 옵셔널 체이닝 연산자](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/Optional_chaining)
 
 #### 널 병합(Nullish Coalescing) 연산자
+
+- 왼쪽 피연산자가 `undefined` 또는 `null`이면 오른쪽 피연산자를 반환하고, 그렇지 않으면 왼쪽 피연산자를 반환한다.
+- 변수에 기본값을 설정할 때 유용하다.
+
+  ```javascript
+  const left = null;
+  const right = "default string";
+
+  // 널 병합 연산자로 구현한 코드
+  const result1 = left ?? right;
+  console.log(result1); // "default string"
+
+  // 널 병합 연산자 없이 구현한 코드
+  const result2 = left !== null && left !== undefined ? left : right;
+  console.log(result2); // "default string"
+  ```
+
+- `??` vs `||`
+
+  ```javascript
+  // ??
+  // => 왼쪽 피연산자가 undefined 또는 null이면 오른쪽 피연산자를 반환한다.
+  0 ?? "right"; // 0
+  null ?? "right"; // "right"
+
+  // ||
+  // => 왼쪽 피연산자가 Falsy값(false, undefined, null, 0, ...)이면 오른쪽 피연산자를 반환한다.
+  0 || "right"; // "right"
+  null || "right"; // "right"
+  ```
 
 - 참고자료
   - [MDN | 널 병합 연산자](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing_operator)

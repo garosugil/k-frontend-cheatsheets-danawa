@@ -250,6 +250,30 @@ new Promise((resolve, reject) => {
 
 ### 템플릿 리터럴(Template Literal)
 
+> 백틱(``)을 사용하는 문자열 표기법이다.
+>
+> 멀티라인 문자열(multi-line strings), 표현식 삽입(expression interpolation) 등 여러 기능을 사용할 수 있다.
+
+- 멀티라인 문자열
+
+  ```javascript
+  // 템플릿 리터럴의 줄바꿈(개행)
+  const president = `도널드
+  트럼프`;
+
+  // 일반 문자열의 줄바꿈 => 이스케이프 시퀀스 사용
+  const newPresident = "조\n바이든";
+  ```
+
+- 표현식 삽입
+  ```javascript
+  const joeBiden = {
+    age: 75,
+  };
+  const president = `조 바이든의 나이는 ${joeBiden.age + 4}세 입니다.`;
+  // "조 바이든의 나이는 79세 입니다."
+  ```
+
 <br>
 
 ---

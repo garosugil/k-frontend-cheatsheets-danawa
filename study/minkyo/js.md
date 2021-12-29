@@ -37,10 +37,10 @@
   const lowerCaseOf = (input) => input.toLowerCase();
   const includes = (what) => (where) => where.includes(what);
 
-  const isIcedBeverage = (input) => includes("iced")(lowerCaseOf(input));
+  const isIcedBeverage = (input) => includes('iced')(lowerCaseOf(input));
   const filter = (checker) => (list) => list.filter(checker);
 
-  const beverages = ["Iced Latte", "Hot Americano", "Iced Cappuccino"];
+  const beverages = ['Iced Latte', 'Hot Americano', 'Iced Cappuccino'];
   const filterIcedBeverage = filter(isIcedBeverage);
 
   console.log(filterIcedBeverage(beverages)); // [ 'Iced Latte', 'Iced Cappuccino' ]
@@ -120,9 +120,9 @@ let greeting = function namedFunc(name) {
   namedFunc(`반가워요! ${name}`); // 재귀 호출
 };
 
-greeting("꿈돌이");
+greeting('꿈돌이');
 
-namedFunc("꿈돌이"); // Uncaught ReferenceError: namedFunc is not defined
+namedFunc('꿈돌이'); // Uncaught ReferenceError: namedFunc is not defined
 ```
 
 #### 함수 선언식 (Function Declaration)
@@ -330,7 +330,7 @@ factorial(7);
 - null ([참고자료](https://2ality.com/2013/10/typeof-null.html))
 
   ```javascript
-  typeof null === "object"; // true
+  typeof null === 'object'; // true
   ```
 
 - boolean
@@ -365,7 +365,7 @@ factorial(7);
 ```javascript
 console.log(this === window); // true
 
-word = "love";
+word = 'love';
 console.log(window.word); // 'love'
 console.log(this.word); // 'love'
 ```
@@ -393,8 +393,8 @@ function whatsThis() {
   return this.word;
 }
 
-const obj = { word: "love" };
-const word = "peace";
+const obj = { word: 'love' };
+const word = 'peace';
 this.word = word;
 
 whatsThis(); // peace
@@ -416,7 +416,7 @@ console.log(globalObj === arrowFunc()); // true
 ```
 
 ```javascript
-const obj = { word: "love" };
+const obj = { word: 'love' };
 const arrowFunc = () => this.word;
 
 arrowFunc(); // undefiined
@@ -435,7 +435,7 @@ boundArrow(); // undefined
 
 ```javascript
 const obj = {
-  word: "love",
+  word: 'love',
   sayWord: function () {
     return this.word;
   },
@@ -445,7 +445,7 @@ obj.sayWord(); // love
 ```
 
 ```javascript
-const obj = { word: "love" };
+const obj = { word: 'love' };
 
 function sayWord() {
   return this.word;
@@ -462,7 +462,7 @@ obj.sayWord(); // love
 
 ```javascript
 const obj = {
-  word: "love",
+  word: 'love',
 };
 
 function sayWord() {
@@ -470,7 +470,7 @@ function sayWord() {
 }
 
 obj.sayWord = sayWord;
-obj.obz = { word: "peace", sayWord: sayWord };
+obj.obz = { word: 'peace', sayWord: sayWord };
 
 obj.obz.sayWord(); // peace
 ```
@@ -508,7 +508,7 @@ obj2.foo.call(obj1); // 1
 - 함수 호출 시 `this`와 매개변수를 명시적으로 넘길 수 있는 메서드 (단, call과는 다르게 apply를 통해 호출할 경우 매개변수들을 배열 형태로 넘김)
 
 ```javascript
-const array = ["a", "b"];
+const array = ['a', 'b'];
 const elements = [0, 1, 2];
 array.push.apply(array, elements);
 console.info(array); // ["a", "b", 0, 1, 2]

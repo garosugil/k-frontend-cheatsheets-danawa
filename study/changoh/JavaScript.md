@@ -153,8 +153,6 @@
   console.log(LANGUAGE_LIST); // ['javascript', 'python']
   ```
 
--
-
 <br>
 
 [🔝 BACK TO TOP](#Table-of-Contents)
@@ -627,6 +625,185 @@
 <br>
 
 ### Map
+
+- 객체와 유사하게 **키-값 쌍으로 이루어진 컬렉션**이다.
+
+  - **키**에 객체를 포함한 **모든 값**을 사용할 수 있다.
+
+- Map 생성자 함수로 맵 객체를 만든다.
+
+  ```javascript
+  const MY_MAP = new Map();
+  ```
+
+- Map 생성자 함수는 키-값 쌍 형태의 이터러블을 파라미터로 전달받을 수 있다.
+
+  ```javascript
+  const MY_MAP = new Map([
+    ["A", 1],
+    ["B", 2],
+    ["C", 3],
+  ]);
+
+  //=> Map(3) {'A' => 1, 'B' => 2, 'C' => 3}
+  ```
+
+- 객체와 달리 객체를 포함한 모든 값을 키로 사용할 수 있다.
+
+  ```javascript
+  const MY_MAP = new Map([
+    ["javascript", ["vue", "react"]], // 문자형 키
+    [777, "훌륭한 손톱깎이"], // 숫자형 키
+    [true, false], // 불린형 키
+  ]);
+
+  //=> Map(3) {'javascript' => Array(2), 777 => '훌륭한 손톱깎이', true => false}
+  ```
+
+- 키가 중복되면 덮어쓴다. 즉, 맵 객체에는 중복된 키를 갖는 요소가 없다.
+
+  ```javascript
+  const MY_MAP = new Map([
+    ["javascript", "vue"],
+    ["javascript", "express"], // 문자형 키
+  ]);
+
+  //=> Map(1) {'javascript' => 'express'}
+  ```
+
+- `Map.prototype.size` 접근자 프로퍼티를 사용해 요소 개수를 확인한다.
+
+  ```javascript
+  console.log(MY_MAP.size); // 1
+  ```
+
+- `Map.prototype.set` 메서드를 사용해 요소를 추가한다.
+
+  ```javascript
+  MY_MAP.set("java", "spring");
+  //=> Map(2) {'javascript' => 'express', 'java' => 'spring'}
+  ```
+
+  새로운 요소가 추가된 맵 객체를 반환하므로 메서드 체이닝이 가능하다.
+
+  ```javascript
+  MY_MAP.set("python", "flask").set("ruby", "ruby on rails");
+  //=> Map(4) {'javascript' => 'express', 'java' => 'spring', 'python' => 'flask', 'ruby' => 'ruby on rails'}
+  ```
+
+- 맵 객체는 `NaN`과 `NaN`을 같다고 평가하여 중복 추가를 허용하지 않는다.
+
+  ```javascript
+  MY_MAP.set(NaN, "HELLO").set(NaN, "WORLD");
+  //=> Map(5) {..., 'ruby' => 'ruby on rails', NaN => 'WORLD'}
+  ```
+
+- `Map.prototype.get` 메서드를 사용해 값을 가져온다.
+
+  ```javascript
+  MY_MAP.get("javascript");
+  //=> "express"
+
+  MY_MAP.get("typescript");
+  //=> undefined
+  ```
+
+- `Map.prototype.has` 메서드를 사용해 요소의 존재 여부를 확인한다.
+
+  ```javascript
+  MY_MAP.has("javascript");
+  //=> true
+
+  MY_MAP.has("typescript");
+  //=> false
+  ```
+
+- `Map.prototype.delete` 메서드를 사용해 요소를 삭제한다.
+
+  - 성공 여부를 반환한다. 따라서 메서드 체이닝은 할 수 없다.
+  - 존재하지 않는 키로 시도하는 경우 **에러 없이 무시**한다.
+
+  ```javascript
+  MY_MAP.delete("javascript");
+  //=> true
+  ```
+
+- `Map.prototype.clear` 메서드를 사용해 요소를 일괄 삭제한다.
+
+  ```javascript
+  MY_MAP.clear();
+  //=> undefined (언제나 undefined를 반환한다)
+  ```
+
+- **맵 객체**는 **이터러블**이다.
+
+  - 맵 객체는 **요소가 삽입된 순서대로 순회**한다.
+  - `for...of`문으로 순회할 수 있다.
+
+    ```javascript
+    MY_MAP.set("python", "flask").set("ruby", "ruby on rails");
+
+    for (language of MY_MAP) {
+      console.log(language); // ['python', 'flask'] ...
+    }
+    ```
+
+  - 스프레드 문법을 사용할 수 있다.
+    ```javascript
+    console.log([...MY_MAP]); // [['python', 'flask'], ['ruby', 'ruby on rails']]
+    ```
+  - 배열 구조 분해를 사용할 수 있다.
+    ```javascript
+    const [A, B] = MY_MAP;
+    console.log(A); // ['python', 'flask']
+    console.log(B); // ['ruby', 'ruby on rails']
+    ```
+
+- `Map.prototype.forEach` 메서드를 사용해 요소를 순회한다.
+
+  - 콜백 함수 내부에서 this로 사용될 객체(Optional)를 파라미터로 전달한다.
+    - 첫 번째: 순회 중인 요소의 값
+    - 두 번째: 순회 중인 요소의 키
+    - 세 번째: 순회 중인 맵 객체 자체
+
+  ```javascript
+  MY_MAP.set("python", "flask").set("ruby", "ruby on rails");
+
+  MY_MAP.forEach((value, key, map) => {
+    console.log(value); // "flask"
+    console.log(key); // "python"
+    console.log(map); // Map(2) {'python' => 'flask', 'ruby' => 'ruby on rails'}
+  });
+  ```
+
+- 이터레이터인 객체를 반환하는 세 가지 메서드를 제공한다.
+
+  - `Map.prototype.keys`
+    - 각 요소의 키를 모은 이터러블+이터레이터 객체를 반환한다.
+  - `Map.prototype.values`
+    - 각 요소의 값을 모은 이터러블+이터레이터 객체를 반환한다.
+  - `Map.prototype.entries`
+    - 각 요소의 키-값 쌍을 모은 이터러블-이터레이터 객체를 반환한다.
+
+  ```javascript
+  const LANGUAGE_MAP = new Map([
+    ["javascript", "vue"],
+    ["java", "spring"],
+    ["python", "django"],
+  ]);
+
+  for (const language of LANGUAGE_MAP.keys()) {
+    console.log(language); // "javascript" -> "java" -> "python"
+  }
+
+  for (const framework of LANGUAGE_MAP.values()) {
+    console.log(framework); // "vue" -> "spring" -> "django"
+  }
+
+  for (const entry of LANGUAGE_MAP.entries()) {
+    console.log(entry); // ['javascript', 'vue'] -> ...
+  }
+  ```
 
 <br>
 

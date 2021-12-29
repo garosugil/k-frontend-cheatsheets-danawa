@@ -46,6 +46,14 @@
   console.log(filterIcedBeverage(beverages)); // [ 'Iced Latte', 'Iced Cappuccino' ]
   ```
 
+<br>
+
+[🔝 BACK TO TOP](#Table-of-Contents)
+
+---
+
+<br>
+
 ### 함수 (Functions)
 
 #### 자바스크립트 함수의 특성
@@ -319,6 +327,14 @@ factorial(7);
 // 5040
 ```
 
+<br>
+
+[🔝 BACK TO TOP](#Table-of-Contents)
+
+---
+
+<br>
+
 ### 타입 (Types)
 
 - ECMA-262 ('21.11.20) 기준으로 작성됨
@@ -535,8 +551,40 @@ bar(2);
 console.log(obj1.a); // 2
 ```
 
+<br>
+
+[🔝 BACK TO TOP](#Table-of-Contents)
+
+---
+
+<br>
+
 ### 프록시
+
+<br>
+
+[🔝 BACK TO TOP](#Table-of-Contents)
+
+---
+
+<br>
 
 ### 심볼
 
+<br>
+
+[🔝 BACK TO TOP](#Table-of-Contents)
+
+---
+
+<br>
+
 ### 프로토타입
+
+<br>
+
+[🔝 BACK TO TOP](#Table-of-Contents)
+
+---
+
+<br>

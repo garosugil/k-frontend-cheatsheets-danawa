@@ -3,6 +3,8 @@
 - [JavaScript 치트시트](#javascript-치트시트)
   - [기초](#기초)
     - [`let` & `const`](#let--const)
+      - [`let` 키워드](#let-키워드)
+      - [`const` 키워드](#const-키워드)
     - [구조 분해 할당(Destructuring Assignment)](#구조-분해-할당destructuring-assignment)
       - [배열 분해](#배열-분해)
       - [객체 분해](#객체-분해)
@@ -26,6 +28,133 @@
 
 ### `let` & `const`
 
+#### `let` 키워드
+
+- 이름이 동일한 변수를 선언할 수 없다.
+
+  ```javascript
+  // let 키워드 : 이름 중복 X
+
+  let president = "조 바이든";
+  let president = "도널드 트럼프"; // SyntaxError: Identifier 'president' has already been declared
+  console.log(president); // "조 바이든"
+  ```
+
+  ```javascript
+  // var 키워드 : 이름 중복 O
+
+  var president = "조 바이든";
+  var president = "도널드 트럼프";
+  console.log(president); // "도널드 트럼프"
+  ```
+
+- **블록 레벨 스코프**를 따른다.
+
+  - `let` 키워드
+    - **모든 코드 블록(`함수`, `if`문, `for`문 등)**을 **지역 스코프**로 인정한다. (=> 블록 레벨 스코프)
+
+  ```javascript
+  let president = "조 바이든"; // 전역 변수
+
+  if (true) {
+    let president = "도널드 트럼프"; // 지역 변수
+    let actor = "최민식"; // 지역 변수
+  }
+
+  console.log(president); // "조 바이든"
+  console.log(actor); // ReferenceError: actor is not defined
+  ```
+
+  - `var` 키워드
+    - **함수 코드 블록**만 **지역 스코프**로 인정한다. (=> 함수 레벨 스코프)
+    - 함수 외부에서 var 키워드로 선언하면 모두 전역 변수가 된다.
+    - 전역 변수 남발 시 애플리케이션의 복잡도가 증가한다.
+
+  ```javascript
+  var president = "조 바이든"; // 전역 변수
+
+  if (true) {
+    var president = "도널드 트럼프"; // 전역 변수
+    var actor = "최민식"; // 전역 변수
+  }
+
+  console.log(president); // "도널드 트럼프"
+  console.log(actor); // "최민식"
+  ```
+
+- 변수 호이스팅이 발생하지 않는다.
+
+  ```javascript
+  // let 키워드 : 호이스팅 X
+
+  console.log(president); // ReferenceError: president is not defined
+  let president;
+  ```
+
+  ```javascript
+  // var 키워드 : 호이스팅 O
+
+  console.log(president); // undefined
+  var president;
+  ```
+
+<br>
+
+[🔝 BACK TO TOP](#Table-of-Contents)
+
+---
+
+<br>
+
+#### `const` 키워드
+
+- `const` 키워드를 사용해 변화하지 않는 변수인 **상수(constant)**를 선언한다.
+
+  ```javascript
+  const bestLanguage = "javascript";
+  ```
+
+- (let과 동일) 블록 레벨 스코프를 따른다.
+
+- (let과 동일) 호이스팅 되지 않는다.
+
+- 일반적으로 상수의 식별자는 대문자와 언더스코어(`_`)로 선언해 명확히 나타낸다.
+
+  ```javascript
+  const BEST_LANGUAGE = "javascript";
+  ```
+
+- 선언과 동시에 초기화해야한다.
+
+  ```javascript
+  const BEST_LANGUAGE; // SyntaxError: Missing initializer in const declaration
+  ```
+
+- 재할당 할 수 없다.
+
+  ```javascript
+  const BEST_LANGUAGE = "javascript";
+  BEST_LANGUAGE = "javasc"; // TypeError: Assignment to constant variable.
+  ```
+
+- 재할당은 안되지만 객체의 값은 변경할 수 있다.
+
+  ```javascript
+  // 1
+  const PRESIDENT = {
+    name: "도널드 트럼프",
+  };
+  PRESIDENT.name = "조 바이든";
+  console.log(PRESIDENT); // {name: '조 바이든'}
+
+  // 2
+  const LANGUAGE_LIST = ["javascript"];
+  LANGUAGE_LIST.push("python");
+  console.log(LANGUAGE_LIST); // ['javascript', 'python']
+  ```
+
+-
+
 <br>
 
 [🔝 BACK TO TOP](#Table-of-Contents)
@@ -44,7 +173,7 @@
 
   ```javascript
   let arr = ["Joe", "Biden"];
-  
+
   let [firstName, familyName] = arr;
   console.log(firstName); // "Joe"
   console.log(familyName); // "Biden"
@@ -109,7 +238,7 @@
     fullName: "조 바이든",
     age: 79,
   };
-  
+
   let { age, fullName } = president; // 순서 상관 없음
   console.log(age); // 79
   console.log(fullName); // "조 바이든"
@@ -122,7 +251,7 @@
     full_name: "조 바이든",
     age_count: 79,
   };
-  
+
   // { 프로퍼티 키: 새로운 변수명 }
   let { full_name: fullName, age_count: age } = president;
   console.log(fullName); // "조 바이든"
@@ -135,7 +264,7 @@
   let joeBiden = {
     fullName: "조 바이든",
   };
-  
+
   let { fullName = "김 아무개", age = 10 } = joeBiden;
   console.log(fullName); // "조 바이든"
   console.log(age); // 10
@@ -147,7 +276,7 @@
   let joeBiden = {
     full_name: "조 바이든",
   };
-  
+
   let { full_name: fullName = "김 아무개", age_count: age = 10 } = joeBiden;
   console.log(fullName); // "조 바이든"
   console.log(age); // 10
@@ -184,7 +313,7 @@
     // 중첩 배열
     items: ["아이폰", "맥북"],
   };
-  
+
   const {
     name: { firstName, familyName },
     items: [itemOne, itemTwo],
@@ -213,7 +342,7 @@
     // 템플릿 리터럴의 줄바꿈(개행)
     const president = `도널드
     트럼프`;
-    
+
     // 일반 문자열의 줄바꿈 => 이스케이프 시퀀스 사용
     const newPresident = "조\n바이든";
     ```
@@ -256,11 +385,11 @@
       },
     },
   };
-  
+
   // name 프로퍼티가 undefined 또는 null이면 평가를 멈추고 undefined를 반환한다.
   const familyName = joeBiden.name?.familyName;
   console.log(familyName); // "바이든"
-  
+
   // pets 프로퍼티가 undefined 또는 null이면 평가를 멈추고 undefined를 반환한다. (-> cat도 동일)
   const catName = joeBiden.pets?.cat?.name;
   console.log(catName); // undefined
@@ -286,11 +415,11 @@
   ```javascript
   const left = null;
   const right = "default string";
-  
+
   // 널 병합 연산자로 구현한 코드
   const result1 = left ?? right;
   console.log(result1); // "default string"
-  
+
   // 널 병합 연산자 없이 구현한 코드
   const result2 = left !== null && left !== undefined ? left : right;
   console.log(result2); // "default string"
@@ -303,7 +432,7 @@
   // => 왼쪽 피연산자가 undefined 또는 null이면 오른쪽 피연산자를 반환한다.
   0 ?? "right"; // 0
   null ?? "right"; // "right"
-  
+
   // ||
   // => 왼쪽 피연산자가 Falsy값(false, undefined, null, 0, ...)이면 오른쪽 피연산자를 반환한다.
   0 || "right"; // "right"
@@ -337,8 +466,6 @@
   - 자바스크립트 앱의 발전에 따라 여러 모듈 시스템(`AMD`, `CommonJS`, `UMD`)들이 만들어졌고, Node.js는 `CommonJS`를 사실상 표준으로 채택했다.
   - ES6에서 클라이언트 사이드 자바스크립트에서 동작하는 `ESM(ES6 Module)`이라 불리는 표준 모듈 기능이 추가됐다.
 
-
-
 #### Module Scope
 
 - ESM을 활용하여 자바스크립트 모듈을 생성하고 모듈 별로 **독립적인 스코프**를 가질 수 있다.
@@ -349,37 +476,33 @@
   ```html
   <!DOCTYPE html>
   <html lang="en">
-  <head>
-  </head>
-  <body>
-  	
-    <script src="script1.mjs" type="module"></script>
-    <script src="script2.mjs" type="module"></script>
-  </body>
+    <head> </head>
+    <body>
+      <script src="script1.mjs" type="module"></script>
+      <script src="script2.mjs" type="module"></script>
+    </body>
   </html>
   ```
 
   ```javascript
   // script1.mjs
-  
+
   const a = "1번 파일의 변수";
   console.log(a); // "1번 파일의 변수"
-  
+
   const joeBiden = "조 바이든";
   ```
 
   ```javascript
   // script2.mjs
-  
+
   // ✅ script1과 변수가 중복돼도 문제가 발생하지 않는다.
   const a = "2번 파일의 변수";
   console.log(a); // "2번 파일의 변수"
-  
+
   // ✅ 다른 모듈 스코프에 있는 식별자를 참조할 수 없다.
   console.log(joeBiden); // Uncaught ReferenceError: joeBiden is not defined
   ```
-
-
 
 <br>
 
@@ -389,45 +512,49 @@
 
 <br>
 
-
-
 #### Exports
 
 - `Named exports`
-  
+
   - 각 선언부 앞에 `export` 키워드를 작성해 **원하는 식별자**를 모듈 외부에 내보낼 수 있다.
     ```javascript
     export const joeBiden = "조 바이든";
     ```
   - 파일 끝에 한 번만 작성하여 원하는 식별자들을 한 번에 내보낼 수 있다.
+
     ```javascript
     const joeBiden = "조 바이든";
-    
+
     export { joeBiden };
     ```
-  
+
 - `Default exports`
+
   - 선언부 앞에 `export default` 키워드를 작성해 **하나의 값**을 모듈 외부에 내보낼 수 있다.
-  
+
     - 모듈당 하나만 있을 수 있으므로 이름 없이 내보낼 수 있다.
-  
+
     ```javascript
     // hello-world.mjs
-    
-    export default function() {
-     	alert("HELLO WORLD");
+
+    export default function () {
+      alert("HELLO WORLD");
     }
     ```
-  
+
     ```javascript
     // presidents.mjs
-    
-    export default ["노태우", "김영삼", "김대중", "노무현", "이명박", "박근혜", "문재인"];
+
+    export default [
+      "노태우",
+      "김영삼",
+      "김대중",
+      "노무현",
+      "이명박",
+      "박근혜",
+      "문재인",
+    ];
     ```
-
-
-
-
 
 <br>
 
@@ -436,8 +563,6 @@
 ---
 
 <br>
-
-
 
 #### Imports
 
@@ -446,12 +571,12 @@
 - **Named exports 가져오기**
 
   - **중괄호 안**에 가져올 식별자를 작성한다.
-    
+
     ```javascript
     import { joeBiden } from "./script1.mjs";
     console.log(joeBiden); // "조 바이든"
     ```
-    
+
   - `as`를 사용해 원하는 이름으로 바꿀 수 있다.
 
     ```javascript
@@ -464,28 +589,24 @@
     - 웹팩(webpack)과 같은 모던 빌드 툴의 tree-shaking을 돕는다.
     - `module.function()` 보다 `function()`이 더 간결하다.
     - 어떤 것이 쓰이고 있는지 명확하기 때문에 코드 구조 파악과 리팩터링이 쉽다.
+
     ```javascript
     import * as scriptOne from "./script1.mjs";
     console.log(scriptOne.joeBiden); // "조 바이든"
     ```
-    
 
 - **Default exports 가져오기**
 
   - **중괄호(`{}`) 없이 원하는 이름으로** 가져온다.
-  
+
     ```javascript
     import PRESIDENTS from "./presidents.mjs";
     console.log(PRESIDENTS); // ["노태우", "김영삼", "김대중", "노무현", "이명박", "박근혜", "문재인"]
     ```
 
-
-
 - 추가설명
   - [ES6 In Depth: Modules](https://hacks.mozilla.org/2015/08/es6-in-depth-modules/)
   - [ES modules: A cartoon deep-dive](https://hacks.mozilla.org/2018/03/es-modules-a-cartoon-deep-dive/)
-
-
 
 <br>
 
@@ -564,7 +685,7 @@
         resolve("fulfilled!");
       }, 3000);
     });
-    
+
     promise.then(
       (result) => console.log(result), // 3초 후 "fulfilled!" 출력
       (error) => console.log(error) // 실행되지 않음
@@ -581,7 +702,7 @@
         reject("rejected!");
       }, 3000);
     });
-    
+
     promise.catch((error) => console.log(error)); // 3초 후 "rejected!" 출력
     ```
 
@@ -671,7 +792,7 @@
       new Promise((resolve, reject) => setTimeout(() => reject("실패"), 2000)),
       new Promise((resolve, reject) => setTimeout(() => resolve("성공"), 1000)),
     ]).then(console.log);
-    
+
     // ✅ 결과
     // [
     //   {status: 'fulfilled', value: '성공'},

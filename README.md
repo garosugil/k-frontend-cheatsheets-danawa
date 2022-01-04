@@ -16,24 +16,18 @@
 <br>
 <br>
 
-
-
 ## Cheatsheets 📖
 
-| 주제       | 치트시트                                |
-| ---------- | --------------------------------------- |
-| HTML       | [바로가기](./cheatsheets/HTML.md)       |
-| JavaScript | [바로가기](./cheatsheets/JavaScript.md) |
-
-
+| 주제                                          | 세부 항목                                                    |
+| --------------------------------------------- | ------------------------------------------------------------ |
+| [HTML](<(./cheatsheets/HTML.md)>)             | \- [HTML 보일러플레이트](./cheatsheets/HTML.md#keywords)<br />- [파비콘(favicon)](./cheatsheets/HTML.md#파비콘favicon)<br />- [CSS Reset](./cheatsheets/HTML.md#css-reset)<br />- [Custom Style Sheet](./cheatsheets/HTML.md#custom-style-sheet)<br />- [시맨틱 태그](./cheatsheets/HTML.md#시맨틱-태그)<br />- [많이 사용되는 태그](./cheatsheets/HTML.md#많이-사용되는-태그)<br />- [메타 태그](./cheatsheets/HTML.md#메타-태그)<br />- [OG(Open Graph)](./cheatsheets/HTML.md#ogopen-graph)<br />- [엔티티(Entity)](./cheatsheets/HTML.md#엔티티)<br />- [이미지](./cheatsheets/HTML.md#이미지img)<br />- [비디오](./cheatsheets/HTML.md#비디오video)<br />- [오디오](./cheatsheets/HTML.md#오디오audio) |
+| [JavaScript](<(./cheatsheets/JavaScript.md)>) | - [`let` & `const`](./cheatsheets/JavaScript.md#let--const)<br />- [배열 구조 분해](./cheatsheets/JavaScript.md#배열-분해)<br />- [객체 구조 분해](./cheatsheets/JavaScript.md#객체-분해)<br />- [템플릿 리터럴(Template Literal)](./cheatsheets/JavaScript.md#템플릿-리터럴template-literal)<br />- [옵셔널 체이닝(Optional Chaining) 연산자](./cheatsheets/JavaScript.md#옵셔널-체이닝optional-chaining-연산자)<br />- [널 병합(Nullish Coalescing) 연산자](./cheatsheets/JavaScript.md#널-병합nullish-coalescing-연산자)<br />- [클래스(Class)](./cheatsheets/JavaScript.md#클래스class)<br />- [모듈(Module)](./cheatsheets/JavaScript.md#모듈module)<br />- [Set](./cheatsheets/JavaScript.md#set)<br />- [Map](./cheatsheets/JavaScript.md#map)<br />- [프로미스(Promise)](./cheatsheets/JavaScript.md#프로미스promise)<br />- [async & await](./cheatsheets/JavaScript.md#async--await)<br />- [Fetch API](./cheatsheets/JavaScript.md#fetch-api) |
 
 <br>
 
 ---
 
 <br>
-
-
 
 ## Contributors ✨
 
@@ -56,4 +50,5 @@
 
 <!-- markdownlint-restore -->
 <!-- prettier-ignore-end -->
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
